@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/umd/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/bootstrap-4.0.0/docs/4.0/examples/dashboard/dashboard.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0 text-center" href="#">后台管理</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="搜索" aria-label="搜索">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">退 出</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <span data-feather="home"></span>
+                                后台管理 <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="accordion">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    <span class="fa fa-home"></span>
+                                    报表管理
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse">
+                                <div class="card-block">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">
+                                                <span class="fa fa-file-excel-o"></span>
+                                                第一张报表
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">
+                                                <span class="fa fa-file-excel-o"></span>
+                                                第一张报表
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">
+                                                <span class="fa fa-file-excel-o"></span>
+                                                第一张报表
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <span class="fa fa-list-ul">EXCEL报表</span>
+                                     
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="collapse">
+                                <div class="card-block">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="parkinginfo" id="exexl-data1">
+                                                <span class="fa fa-file-excel-o">场内停车记录报表</span>                                                
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseTree">
+                                    <span class="fa fa-database">数据中心</span>    
+                                </a>
+                            </div>
+                            <div id="collapseTree" class="collapse">
+                                <div class="card-block">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" id="data-testPdf">
+                                                <span class="fa fa-file-text"> 第一张报表</span>                
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <ol class="breadcrumb" id="text-title">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li class="active">@System.Globalization.CultureInfo.GetCultureInfo("zh-CN").DateTimeFormat.GetDayName(DateTime.Now.DayOfWeek)</li>
+                </ol>
+                    @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#collapseOne .card-block ul').append('<li class="nav-item"><a class="nav-link" href= "parkinginfo" id= "exexl-data2"><span class="fa fa-file-excel-o">场内停车记录报表</span></a></li >');
+            @*$('#text-title').prepend(' <li><a href="#">报表管理/</a></li><li><a href="#">第一张报表/</a></li>');
+            $('#text-title').append('<li class="active">@System.Globalization.CultureInfo.GetCultureInfo("zh-CN").DateTimeFormat.GetDayName(DateTime.Now.DayOfWeek)</li>');*@
+
+            //$("#testPdf").click(function () {
+            //    var text;
+            //    var txthref;
+            //    text = $(this).first().text().trim();//(function (i, origtext) { return origtext });
+            //    txthref = $(this).first().attr('href');//获取元素属性值
+            //    alert(text + '\n' + txthref);
+            //    text = $('#text-title li:nth-child(2) a').text();
+            //    alert(text);
+            //})
+           
+        });
+        $('#exexl-data2').click(function () {
+            $('#text-title li:nth-child(1) a').text('EXCEL报表/');
+            $('#text-title li:nth-child(2) a').attr('href', $(this).attr('href'));
+            $('#text-title li:nth-child(2) a').text($(this).first().text().trim() + '/');
+        })
+    </script>
+</body>
+</html>

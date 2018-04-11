@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn">@*语言属性*@
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />@*IE兼容*@
+    <meta charset="utf-8" />@*字符编码*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/umd/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/bootstrap-4.0.0/docs/4.0/examples/dashboard/dashboard.css" rel="stylesheet" />
+    @RenderSection("head", required: false)
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0 text-center" href="#">后台管理</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="搜索" aria-label="搜索">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">退 出</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <span data-feather="home"></span>
+                                后台管理 <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseHome">
+                                    <span class="fa fa-home">中心管理</span>
+
+                                </a>
+                            </div>
+                            <div id="collapseHome" class="collapse">
+                                <div class="card-block">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" id="home-operator">
+                                                <span class="fa fa-address-book">管理员</span>
+                                            </a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" id="home-users">
+                                                <span class="fa fa-address-book-o">用户管理</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseExcel">
+                                    <span class="fa fa-list-ul">EXCEL报表</span>
+
+                                </a>
+                            </div>
+                            <div id="collapseExcel" class="collapse">
+                                <div class="card-block">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="~/home/testMate" id="exexl-data1">
+                                                <span class="fa fa-file-excel-o">场内停车记录报表</span>
+                                            </a>
+
+                                        </li>
+                                        <li class="nav-item nav-link">
+                                            @*@Html.ActionLink("管理员", "Index", "_operator", new { id = "exexl-data2", @class = "nav-link" })*@
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseDB">
+                                    <span class="fa fa-database">数据管理</span>
+
+                                </a>
+                            </div>
+                            <div id="collapseDB" class="collapse">
+                                <div class="card-block">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="~/_operator/index" id="DB-operator">
+                                                <span class="fa fa-address-book">管理员表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                @RenderBody()
+            </main>
+               
+        </div>
+    </div>
+    @*<script>
+        $(document).ready(function () {
+           
+        })
+    </script>*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

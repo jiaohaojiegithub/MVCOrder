@@ -1,0 +1,75 @@
+﻿@model MVCOrder.Models.YKT._operator
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>_operator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.op_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.op_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.op_pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.op_pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.op_cardno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.op_cardno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creatdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creatdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deptno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deptno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.op_code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

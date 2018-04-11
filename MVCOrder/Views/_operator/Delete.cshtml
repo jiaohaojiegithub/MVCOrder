@@ -1,0 +1,81 @@
+﻿@model MVCOrder.Models.YKT._operator
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>_operator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.op_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.op_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.op_pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.op_pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.op_cardno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.op_cardno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.remark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.remark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creatdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creatdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deptno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deptno)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

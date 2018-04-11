@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+<button class="btn btn-block" value="跳转页面">跳转页面</button>
+<script>
+    $('button').click(function () {
+        //window.location.href = "/_operator/operatorInfo";
+        window.open("/_operator/operatorInfo", "_self");
+    })
+    
+
+</script>

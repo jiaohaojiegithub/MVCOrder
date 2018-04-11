@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "OperatorAdvanced";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@section Head{
+    <link href="~/bootstrap-table-develop/dist/bootstrap-table.css" rel="stylesheet" />
+    <script src="~/bootstrap-table-develop/dist/bootstrap-table.js"></script>
+    <script src="~/bootstrap-table-develop/dist/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+    <script src="~/bootstrap-table-develop/dist/locale/bootstrap-table-zh-CN.js"></script>
+}
+<table id="table"
+       data-toggle="table"
+       data-pagination="true"
+       data-search="true"
+       data-advanced-search="true"
+       data-id-table="advancedTable"></table>
+<script type="text/javascript">
+    var data;
+    $('#table').bootstrapTable({
+        url: "/Home/dataparkinginfo",
+        method: 'get',
+        sortClass: '#', //被排序的td标签的class名
+        striped: true,//设置为 true 会有隔行变色效果
+        //iconsPrefix: 'secondary',
+        //toolbar: '#toolbar',                //工具按钮用哪个容器
+        columns: [{
+            field: '序号',
+            title: '序号'
+        }, {
+            field: '停车类别',
+            title: '停车类别'
+        }, {
+            field: '车牌号',
+            title: '车牌号'
+        }, {
+            field: '入场时间',
+            title: '入场时间'
+        }, {
+            field: '入场图象',
+            title: '入场图象'
+        }, {
+            field: '占用车位',
+            title: '占用车位'
+        }, {
+            field: '入场操作员',
+            title: '入场操作员'
+        }],
+        pagination: true,//设置为 true 会在表格底部显示分页条
+        pageNumber: 1,// 	如果设置了分页，首页页码
+        pageList: [10,25, 50, 100],// 	如果设置了分页，设置可供选择的页面数据条数。设置为All 则显示所有记录
+        //search: true,//是否启用搜索框
+        strictSearch: false,//设置为 true启用 全匹配搜索，否则为模糊搜索
+        searchText: '',//初始化搜索文字
+        trimOnSearch: true,//设置为 true 将允许空字符搜索
+        showHeader: true,//是否显示列头
+        showFooter: false,//是否显示列脚
+        //showColumns: false,// 	是否显示 内容列下拉框
+        //showRefresh: false,//是否显示 刷新按钮
+        //showPaginationSwitch: true,// 	是否显示 数据条数选择框
+        //minimumCountColumns: 10,// 	当列数小于此值时，将隐藏内容列下拉框。
+        searchAlign: 'right'//指定 搜索框 水平方向的位置。’left’ or ‘right’
+
+    });
+        $(document).ready(function () {
+            $('button[name="advancedSearch"] i').addClass("fa fa-chevron-circle-down");
+    });
+</script>

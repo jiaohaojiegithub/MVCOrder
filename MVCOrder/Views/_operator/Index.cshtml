@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MVCOrder.Models.YKT._operator>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.op_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.op_pass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.op_cardno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creatdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deptno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.op_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.op_pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.op_cardno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creatdt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deptno)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.op_code }) |
+            @Html.ActionLink("Details", "Details", new { id=item.op_code }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.op_code })
+        </td>
+    </tr>
+}
+
+</table>
